@@ -12,6 +12,8 @@ import streamlit as st
 import plotly.express as px
 import numpy as np
 import numpy_financial as npf #DOWNLOAD: pip3 install numpy-financial
+import squarify
+import matplotlib.pyplot as plt
 
 #%% page setup
 st.set_page_config(layout="wide")  # this needs to be the first Streamlit command
@@ -26,7 +28,7 @@ col1,col2 = st.columns([6, 5])
 
 #%% import 'df_MSA_price.csv' and 'df_SPY' from here
 #setup path to export csv 
-# os.chdir("C:\\Tai\\RE_project\\Github\\dashboards\\MSA_returns\\csv")
+# os.chdir("C:\\Tai\\RE_project\\Github\\csv\\RE_input")
 # path = os.getcwd()
 # path_csv = path + "\\"
 
@@ -69,11 +71,11 @@ DOWNPAYMENT = st.sidebar.number_input(
 
 # user input side-bar for interest rates
 if "INT_RATE" not in st.session_state:
-    INT_RATE = 5.00
+    INT_RATE = 6.00
 
 INTEREST = st.sidebar.number_input(
     'Input mortgage interest rate, in %',
-    value=float(5.00),
+    value=float(6.00),
     step=0.1,
     help="The interest rate on your mortgage",
     key='INT_RATE', 
@@ -99,11 +101,11 @@ LOAN_LIFE = st.sidebar.number_input(
 
 # user input side-bar for rental yields
 if "RENT_YIELD" not in st.session_state:
-    RENT_YIELD = 4.0
+    RENT_YIELD = 3.0
     
 RENTAL_YIELD = st.sidebar.number_input(
     'Input estimated net rental yield, in %',
-    value=float(4.0),
+    value=float(3.0),
     step=0.1,
     help="The estimated net rental yield on your property.",
     key='RENT_YIELD', 
@@ -256,7 +258,7 @@ with col1:
         showlegend=True,
         title_x=0.08,
         title_y=0.93,
-        width=850,
+        width=700,
         height=500, 
         bargap=0.05,
         
@@ -325,6 +327,10 @@ df_merged.columns = [*df_merged.columns[:-1], 'Dollar']
 Total_gains = df_merged['Dollar'].iloc[3] + df_merged['Dollar'].iloc[1] + df_merged['Dollar'].iloc[4] - df_merged['Dollar'].iloc[2]
 Total_gains = '${:,.0f}'.format(Total_gains)
 
+#%%
+# with col2:
+    
+
 
 #%%
 with col2:
@@ -357,7 +363,7 @@ with col2:
         showlegend=True,
         title_x=0.08,
         title_y=0.93,
-        width=700,
+        width=600,
         height=500, 
         bargap=0.05,
         
@@ -421,7 +427,7 @@ with col1:
         showlegend=True,
         title_x=0.08,
         title_y=0.93,
-        width=850,
+        width=700,
         height=500, 
         bargap=0.05,
         
@@ -512,7 +518,7 @@ with col2:
         showlegend=True,
         title_x=0.08,
         title_y=0.93,
-        width=700,
+        width=600,
         height=500, 
         bargap=0.05,
         

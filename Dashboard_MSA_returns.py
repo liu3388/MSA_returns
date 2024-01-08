@@ -12,7 +12,6 @@ import streamlit as st
 import plotly.express as px
 import numpy as np
 import numpy_financial as npf #DOWNLOAD: pip3 install numpy-financial
-import squarify
 import matplotlib.pyplot as plt
 
 #%% page setup

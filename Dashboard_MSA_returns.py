@@ -444,7 +444,7 @@ with col1:
     #add note to chart
     fig_SPY.add_annotation(
     showarrow=False,
-    text='Source: Realtor.com, Yahoo Finance, ApexaVisoin.com, ',
+    text='Source: Realtor.com, Yahoo Finance, ApexaVision.com',
     font=dict(size=13), 
     xref='x domain',
     x=0.005,
